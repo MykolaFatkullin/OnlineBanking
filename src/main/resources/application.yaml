@@ -1,0 +1,15 @@
+spring:
+  main:
+    banner-mode: off
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/online_banking
+    username: postgres
+    password: postgres
+
+  jpa:
+    generate-ddl: false
+    show-sql: false
+
+  flyway:
+    enabled: true
