@@ -1,0 +1,19 @@
+<configuration>
+
+    <appender name="CONSOLE_APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                [%d{yy-MM-dd HH:mm:ss:SSS},%highlight(%-5level)][%t] %cyan(%logger{36}:%M:%L) - %m %mdc%n
+            </pattern>
+        </encoder>
+    </appender>
+    <springProfile name="!prod">
+        <logger name="org.hibernate" level="debug"/>
+        <logger name="org.hibernate.engine.internal.StatisticalLoggingSessionEventListener" level="debug"/>
+
+        <root level="info">
+            <appender-ref ref="CONSOLE_APPENDER"/>
+        </root>
+    </springProfile>
+
+</configuration>

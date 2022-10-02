@@ -6,10 +6,25 @@ spring:
     url: jdbc:postgresql://localhost:5432/online_banking
     username: postgres
     password: postgres
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     generate-ddl: false
     show-sql: false
+    hibernate:
+      ddl-auto: none
 
   flyway:
     enabled: true
+
+
+app:
+  security:
+    jwt:
+      keystore-location: keys/bankingapp.jks
+      keystore-password: storepasssecretpassword
+      keystore-alias: jwtsigning
+      keystore-passphrase: kespasssecretpassword
+      expiration-time: 60000
+    refresh-token:
+      expiration-time: 120000
